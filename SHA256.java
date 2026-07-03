@@ -24,7 +24,7 @@ public class SHA256 {
         0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19
     };
 
-   tatic String sha256(String message) {
+    public static String sha256(String message) {
         byte[] msg = null;
         try {
             msg = message.getBytes("UTF-8");
