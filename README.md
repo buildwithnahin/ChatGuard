@@ -1,5 +1,3 @@
-# README.md sample content:
-
 # ChatGuard - RSA Chat & SHA-256 Java Implementation
 
 This project contains:
