@@ -1,5 +1,3 @@
-# Paste the example README content below and save
-
 # README.md sample content:
 
 # ChatGuard - RSA Chat & SHA-256 Java Implementation
