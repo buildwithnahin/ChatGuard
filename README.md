@@ -1,15 +1,24 @@
 # ChatGuard
 
-ChatGuard is a small Java socket chat application that demonstrates encrypted messaging between two peers. The project now uses a shared crypto helper to keep the codebase organized and easier to maintain.
+ChatGuard is a simple two-terminal Java chat application. One program runs as the server and the other runs as the client. After both sides connect, they exchange public keys and send messages as encrypted text over a socket connection.
 
-## Project Structure
+## What It Does
 
-- `Client.java` - interactive chat client
-- `Server.java` - socket chat server
-- `ChatCrypto.java` - shared RSA key generation and message encryption helpers
-- `SHA256.java` - standalone SHA-256 implementation
+- Starts a local chat session between a server and a client
+- Exchanges public keys after the connection is established
+- Encrypts outgoing messages before sending them across the socket
+- Decrypts incoming messages before printing them in the terminal
+- Supports a clean exit with `/exit`
+
+## Project Files
+
+- `Server.java` - waits for a client connection and manages the server side of the chat
+- `Client.java` - connects to the server and manages the client side of the chat
+- `ChatCrypto.java` - shared helper for key generation, encryption, decryption, and key fingerprints
 
 ## Build
+
+Compile all Java files from the project directory:
 
 ```bash
 javac *.java
@@ -17,26 +26,28 @@ javac *.java
 
 ## Run
 
-Start the server in one terminal:
+Open two terminals in the project folder.
+
+In the first terminal, start the server:
 
 ```bash
 java Server
 ```
 
-Start the client in another terminal:
+In the second terminal, start the client:
 
 ```bash
 java Client
 ```
 
-## Usage
+## How to Use
 
-- Type messages normally to send encrypted chat content.
-- Type `/exit` in either terminal to close the session cleanly.
-- Each side prints a SHA-256 public-key fingerprint during setup so the handshake can be checked manually.
+1. Start the server first.
+2. Start the client after the server is waiting for a connection.
+3. Type a message and press Enter to send it.
+4. Use `/exit` in either terminal to close the chat session.
 
 ## Notes
 
-- The chat flow uses RSA-style encryption with per-message key exchange between the client and server.
-- `SHA256.java` is available as a utility class, but it is not required by the chat flow.
-- This is a learning project, not a production-secure messaging system.
+- This project is intended for learning and demonstration.
+- The chat flow is designed for a local client-server example, not production messaging.
